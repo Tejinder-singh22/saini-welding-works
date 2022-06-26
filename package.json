@@ -1,0 +1,31 @@
+{
+  "name": "real-welding",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dompurify": "^2.3.8",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "jsdom": "^19.0.0",
+    "marked": "^4.0.17",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.4.0",
+    "nodemailer": "^6.7.5",
+    "npx": "^10.2.2",
+    "path": "^0.12.7",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}

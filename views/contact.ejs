@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../css/contact.css">
+<!--&lt;!&ndash;bootstrap-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script>
+		function add()
+		{
+			let name = document.getElementById("name").value;
+	         let email = document.getElementById("em").value;
+			let mob =  document.getElementById("mob").value;
+		 
+          console.log('kldjkljdk');
+
+			if(name==""){
+				alert("Please Enter a valid name");
+				return false;
+			}
+			if(mob.length<10||mob.length==0)
+			{
+				alert("Please Enter a valid Mobile number");
+				return false;
+			}
+
+
+			// var xhr = new XMLHttpRequest();
+			// xhr.open("POST","http://localhost:8001/on",true )
+			// xhr.onreadystatechange = function() {                 //ONREADYSTATE Change tell us about error if cant work
+			// 	if (this.readyState == 4 && this.status == 200) {
+			// 		//oye browser data in url we are ftching is in jason format
+            //        console.log('yesss')
+			// 	}
+
+			// };
+
+			var data={        // data in green is the variable which we have to make in model
+                "name": name,
+			   "email" : email,
+				"phoneno": mob
+			}
+           alert("Thanks "+name+" your details have been saved, we will reach you ASAP");
+		// 	xhr.send(data); //convert javascript value to jason string
+			var saveData = $.ajax({
+      type: 'POST',
+      url: "http://localhost:8001/on",
+      data: data,
+      dataType: "JSON",
+      success: function(resultData) { alert("Save Complete") }
+});
+saveData.error(function() { alert("Something went wrong"); });
+		}
+		
+
+	</script>
+</head>
+<body>
+<!-- 
+<div class=" main">
+	
+	<div>
+		<form  onsubmit = add() class="demo">
+			Name :  <input type="text" value="name" id="name"><br>
+			Phone:  <input type="text" value="phoneno" id="mob"><br>
+			<button type="submit" id="b1"><h3>submit</h3></button>
+		</form>
+
+	</div>
+</div> -->
+
+<div class="flex-container">
+	<div class="container">  
+		<form id="contact"onsubmit = add()>
+		  <h3>Saini Welding Works</h3>
+		  <h4>Contact us for our services</h4>
+		  <fieldset>
+			<input id="name" placeholder="Your name" type="text" tabindex="1" required autofocus>
+		  </fieldset>
+		  <fieldset>
+			<input id="em" placeholder="Your Email Address" type="email" tabindex="2" required>
+		  </fieldset>
+		  <fieldset>
+			<input  id="mob" placeholder="Your Phone Number  " type="tel" tabindex="3" required>
+		  </fieldset>
+		  
+		  <!-- <fieldset>
+			<textarea placeholder="Type your message here...." tabindex="5" required></textarea>
+		  </fieldset> -->
+		  <fieldset>
+			<button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+		  </fieldset>
+		  <h6 class="copyright">Designed by <a href="https://colorlib.com" target="_blank" title="Colorlib">Colorlib</a></h6>
+		</form>
+	  </div>
+   
+  </div>
+</body>
+</html>
