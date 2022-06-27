@@ -6,7 +6,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 import { fileURLToPath } from 'url';
 import bodyParser from 'body-parser';
-import nodemailer from 'nodemailer'
 import insert from './dao/insert.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
