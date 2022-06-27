@@ -2,6 +2,8 @@ import express from "express";
 import mongoose from 'mongoose';
 import Cors from 'cors'
 import path from 'path';
+import dotenv from 'dotenv';
+dotenv.config();
 import { fileURLToPath } from 'url';
 import bodyParser from 'body-parser';
 import nodemailer from 'nodemailer'
@@ -16,7 +18,7 @@ const conn = '';
 app.use(express.json())
 app.use(Cors());
 //db config
-mongoose.connect('mongodb://127.0.0.1/Welding',{
+mongoose.connect(`${process.env.DBHOST}`,{
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
