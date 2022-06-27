@@ -17,6 +17,8 @@ const conn = '';
 app.use(express.json())
 app.use(Cors());
 //db config
+mongoose.Promise = global.Promise
+
 mongoose.connect(process.env.DBHOST,{ 
     useUnifiedTopology: true,
     useNewUrlParser: true,
