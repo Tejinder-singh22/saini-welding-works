@@ -17,10 +17,10 @@ const conn = '';
 app.use(express.json())
 app.use(Cors());
 //db config
-mongoose.connect(`${process.env.DBHOST}`,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+// mongoose.connect(`${process.env.DBHOST}`,{
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// })
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/static'));
 app.use(express.json()); 
