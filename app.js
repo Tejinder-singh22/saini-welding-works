@@ -17,10 +17,14 @@ const conn = '';
 app.use(express.json())
 app.use(Cors());
 //db config
-// mongoose.connect(`${process.env.DBHOST}`,{
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// })
+mongoose.connect(process.env.DBHOST,{ 
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex:true,
+    useFindAndModify:false,
+ })
+ .then(() => console.log('MongoDB Connected...'))
+    .catch((err) => console.log(err))
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/static'));
 app.use(express.json()); 
