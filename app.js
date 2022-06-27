@@ -11,19 +11,17 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
 const port =  process.env.PORT || 8001;
-const conn = '';
+
 
 //middleware
 app.use(express.json())
 app.use(Cors());
 //db config
-mongoose.Promise = global.Promise
+const conn = 'mongodb+srv://tejinder:Teji22gg@cluster0.x40zw.mongodb.net/tinderdb?retryWrites=true&w=majority';
 
-mongoose.connect(process.env.DBHOST,{ 
+mongoose.connect(conn,{ 
     useUnifiedTopology: true,
     useNewUrlParser: true,
-    useCreateIndex:true,
-    useFindAndModify:false,
  })
  .then(() => console.log('MongoDB Connected...'))
     .catch((err) => console.log(err))
