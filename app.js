@@ -17,14 +17,13 @@ const port =  process.env.PORT || 8001;
 app.use(express.json())
 app.use(Cors());
 //db config
-const conn = 'mongodb+srv://tejinder:Teji22gg@cluster0.x40zw.mongodb.net/tinderdb?retryWrites=true&w=majority';
+const conn = 'mongodb://127.0.0.1/Welding';
 
-mongoose.connect( process.env.DBHOST,{ 
-    useUnifiedTopology: true,
+mongoose.connect(`${process.env.DBHOST}`,{ 
     useNewUrlParser: true,
- })
- .then(() => console.log('MongoDB Connected...'))
-    .catch((err) => console.log(err))
+     
+    useUnifiedTopology: true,
+})
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/static'));
 app.use(express.json()); 
