@@ -19,7 +19,7 @@ app.use(Cors());
 //db config
 const conn = 'mongodb+srv://tejinder:Teji22gg@cluster0.x40zw.mongodb.net/tinderdb?retryWrites=true&w=majority';
 
-mongoose.connect(conn,{ 
+mongoose.connect( process.env.DBHOST,{ 
     useUnifiedTopology: true,
     useNewUrlParser: true,
  })
