@@ -9,7 +9,7 @@ import insert from './dao/insert.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
-const port = process.env.PORT || 8001;
+const port =  process.env.PORT || 8001;
 const conn = '';
 
 //middleware
