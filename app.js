@@ -18,8 +18,8 @@ app.use(express.json())
 app.use(Cors());
 //db config
 const conn = 'mongodb://127.0.0.1/Welding';
-console.log(process.env.DBHOST || conn);
-mongoose.connect(process.env.DBHOST,{ 
+console.log(process.env.DBHOST);
+mongoose.connect(process.env.DBHOST || conn,{ 
     useNewUrlParser: true,
      
     useUnifiedTopology: true,
