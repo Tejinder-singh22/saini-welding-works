@@ -2,29 +2,24 @@ import express from "express";
 import mongoose from 'mongoose';
 import Cors from 'cors'
 import path from 'path';
-import dotenv from 'dotenv';
-dotenv.config();
 import { fileURLToPath } from 'url';
 import bodyParser from 'body-parser';
+import nodemailer from 'nodemailer'
 import insert from './dao/insert.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
-const port =  process.env.PORT || 8001;
-
+const port = process.env.PORT || 8001;
+const conn = '';
 
 //middleware
 app.use(express.json())
 app.use(Cors());
 //db config
-const conn = 'mongodb://127.0.0.1/Welding';
-
-mongoose.connect( process.env.DBHOST || conn,{ 
-    useUnifiedTopology: true,
+mongoose.connect(process.env.DBHOST,{
     useNewUrlParser: true,
- })
- .then(() => console.log('MongoDB Connected...'))
-    .catch((err) => console.log(err))
+    useUnifiedTopology: true
+})
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/static'));
 app.use(express.json()); 
