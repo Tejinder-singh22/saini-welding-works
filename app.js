@@ -16,7 +16,7 @@ const conn = '';
 app.use(express.json())
 app.use(Cors());
 //db config
-mongoose.connect( process.env.DBHOST,{
+mongoose.connect(process.env.DBHOST,{
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
