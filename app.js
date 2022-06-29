@@ -16,7 +16,7 @@ const conn = '';
 app.use(express.json())
 app.use(Cors());
 //db config
-mongoose.connect(process.env.DBHOST,{
+mongoose.connect('mongodb+srv://tejinder:Teji123@cluster0.x40zw.mongodb.net/Welding?retryWrites=true&w=majority',{
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
