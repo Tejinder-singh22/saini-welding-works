@@ -39,40 +39,43 @@ app.get('/contact',(req,res)=>{
 app.post('/on',(req,res)=>{
     console.log(req.body);
     const customerData = req.body;
-     insert(customerData);
-        // nodemailer objects
-    // let mailOpts, transporter;
+   
+         // create reusable transporter object using the default SMTP transport
+  let transporter = nodemailer.createTransport({
+    name: 'gmail.com',
+   service: 'gmail', // true for 465, false for other ports
+    auth: {
+        user: 't9814312194@gmail.com', // generated  user
+        pass: ''  // generated 16 digit app  password in g accouunt
+    }
+  });
 
-    // // email transporter
-    // transporter = nodemailer.createTransport({
-    //     host: 'smtp.gmail.com',
-    //     port: 587, // changed from 465
-    //     secure: false,
-    //     auth: {
-    //         admin: "Tejinder22gg@gmail.com",
-    //         pass: "teji22gg"
-    //     },
-    //     tls:{
-    //         rejectUnauthorized:false
-    //     }
-    // });
+  // setup email data with unicode symbols
+  let mailOptions = {
+      from: 't9814312194@gmail.com', // sender address
+      to: 'tejinderinsta@gmail.com', // list of receivers
+      subject: 'Welding Customer', // Subject line
+      text: `Name: ${req.body.name},
+             Email: ${req.body.email},
+             Phone: ${req.body.phoneno},` // plain text body
+        // html body
+  };
 
-    // // email credentials
-    // mailOpts = {
-    //     from: '"Node mailer contact "<Tejinder22gg@gmail.com>',
-    //     to: 't9814312194@gmail.com',
-    //     subject: "Welding CUSTOMER!!!!",
-    //     text: `${req.body.email}  is our new customer, havinf phn ${req.body.phoneno}`
-    // };
-
-    // // send email and verify contact
-    // transporter.sendMail(mailOpts, function(err, res) {
-    //    if (err) {
-    //        console.log(err);
-    //    } else {
-    //        res.render("contact-success");
-    //    }
-    // });
+  // send mail with defined transport object
+  transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+            console.log(error);
+      }else
+      {
+        insert(customerData);
+        console.log('email sent successfully'+info.response);
+        
+      }
+       
+      
+      
+  });
+ 
     res.sendStatus(200);
 })
 
