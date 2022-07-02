@@ -46,7 +46,7 @@ app.post('/on',(req,res)=>{
    service: 'gmail', // true for 465, false for other ports
     auth: {
         user: 't9814312194@gmail.com', // generated  user
-        pass: ''  // generated 16 digit app  password in g accouunt
+        pass: 'ibrfqyktdddtshsv'  // generated 16 digit app  password in g accouunt
     }
   });
 
