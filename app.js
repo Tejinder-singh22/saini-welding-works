@@ -81,4 +81,5 @@ app.post('/on',(req,res)=>{
 
 app.listen(port,()=>{
     console.log(`listening on port ${port}`);
+    console.log(`Db string  ${process.env.DBHOST}`);
 })
