@@ -16,7 +16,7 @@ const conn = 'mongodb://localhost:27017/Welding';
 app.use(express.json())
 app.use(Cors());
 //db config
-mongoose.connect('mongodb+srv://tejinder:Teji123@cluster0.x40zw.mongodb.net/Welding?retryWrites=true&w=majority'||conn,{
+mongoose.connect(process.env.DBHOST||conn,{
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
