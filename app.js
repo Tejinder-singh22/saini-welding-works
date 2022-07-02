@@ -10,13 +10,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
 const port = process.env.PORT || 8001;
-const conn = '';
+const conn = 'mongodb://localhost:27017/Welding';
 
 //middleware
 app.use(express.json())
 app.use(Cors());
 //db config
-mongoose.connect('mongodb+srv://tejinder:Teji123@cluster0.x40zw.mongodb.net/Welding?retryWrites=true&w=majority',{
+mongoose.connect('mongodb+srv://tejinder:Teji123@cluster0.x40zw.mongodb.net/Welding?retryWrites=true&w=majority'||conn,{
     useNewUrlParser: true,
     useUnifiedTopology: true
 })

@@ -125,6 +125,18 @@ video{
 	line-height: 75px;
 	font-size: 30px;
   } */
+ .workshop-outer{
+	border-radius: 20px;
+ }
+  .workshop{
+	height: 90px;
+	background-color: #212529;
+	
+  }
+
+  .card-title{
+	color:#ffc107;
+  }
 
 @media(min-width: 992px){
 
@@ -144,11 +156,20 @@ video{
    }
 }
 @media(max-width: 479px){
+	
+	.gallery h1 {
+		font-size: 36px;
+		 
+	}
+	.hearderset h2 {
+		font-size: 50px;
+		font-weight: bold;
+	}
+	.weld-icons{
+		margin-bottom: 40px;
+		margin-top: 8px;
+	   }
 
-.hearderset h2{
-	font-size: 22px;
-	font-weight: bold;
-}
 .ourservices{
 	
 	height: 1000px;
@@ -172,4 +193,46 @@ video{
 	margin-left: 0px;
 	margin-right: 500px;
 
+}
+
+.row
+{
+	justify-content: center;
+}
+
+// .Gallery{
+// 	background-image: url('https://images.unsplash.com/photo-1514472796143-14ece5ab7d94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=873&q=80');
+//    background:cover;
+// }
+
+.justify-content-between {
+    -ms-flex-pack: justify!important;
+    justify-content: space-around !important;
+}
+  
+#gallery {
+  img {
+    height: 75vw;
+    object-fit: cover;
+    
+    @media (min-width: $bootstrap-sm) {
+      height: 35vw;
+    }
+    
+    @media (min-width: $bootstrap-lg) {
+      height: 18vw;
+    }
+  }
+}
+ 
+ 
+.carousel-item {
+  img {
+    height: 60vw;
+    object-fit: cover;
+    
+    @media (min-width: $bootstrap-sm) {
+      height: 350px;
+    }
+  }
 }
