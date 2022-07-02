@@ -4,7 +4,8 @@ import Cors from 'cors'
 import path from 'path';
 import { fileURLToPath } from 'url';
 import bodyParser from 'body-parser';
-import nodemailer from 'nodemailer'
+import nodemailer from 'nodemailer';
+import wbm from 'wbm';
 import insert from './dao/insert.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,7 +18,7 @@ app.use(express.json())
 app.use(Cors());
 //db config
 //https://catalins.tech/heroku-environment-variables
-mongoose.connect(process.env.DATABASE_URL,{
+mongoose.connect(process.env.DATABASE_URL||conn,{
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
@@ -40,7 +41,14 @@ app.get('/contact',(req,res)=>{
 app.post('/on',(req,res)=>{
     console.log(req.body);
     const customerData = req.body;
-   
+
+    wbm.start().then(async () => {
+        const phones = ['916239576769'];
+        const message = 'Good Morning.';
+        await wbm.send(phones, message);
+        await wbm.end();
+    }).catch(err => console.log(err));
+
          // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     name: 'gmail.com',
