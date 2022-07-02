@@ -16,7 +16,8 @@ const conn = 'mongodb://localhost:27017/Welding';
 app.use(express.json())
 app.use(Cors());
 //db config
-mongoose.connect(process.env.DBHOST||conn,{
+//https://catalins.tech/heroku-environment-variables
+mongoose.connect(process.env.DATABASE_URL,{
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
@@ -81,5 +82,5 @@ app.post('/on',(req,res)=>{
 
 app.listen(port,()=>{
     console.log(`listening on port ${port}`);
-    console.log(`Db string  ${process.env.DBHOST}`);
+    console.log(`db ${process.env.DATABASE_URL}`);
 })
