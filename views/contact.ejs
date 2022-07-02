@@ -47,7 +47,7 @@
 		// 	xhr.send(data); //convert javascript value to jason string
 			var saveData = $.ajax({
       type: 'POST',
-      url: "http://localhost:8001/on",
+      url: `https://saini-welding-works.herokuapp.com/on`,
       data: data,
       dataType: "JSON",
       success: function(resultData) { alert("Save Complete") }
