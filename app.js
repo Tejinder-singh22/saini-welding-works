@@ -17,7 +17,7 @@ app.use(express.json())
 app.use(Cors());
 //db config
 //https://catalins.tech/heroku-environment-variables
-mongoose.connect(process.env.DATABASE_URL||conn,{
+mongoose.connect("mongodb+srv://tejinder:Teji22gg@cluster0.x40zw.mongodb.net/Welding?retryWrites=true&w=majority"||conn,{
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
@@ -40,7 +40,6 @@ app.get('/contact',(req,res)=>{
 app.post('/on',(req,res)=>{
     console.log(req.body);
     const customerData = req.body;
-
   
 
          // create reusable transporter object using the default SMTP transport
@@ -74,9 +73,6 @@ app.post('/on',(req,res)=>{
         console.log('email sent successfully'+info.response);
         
       }
-       
-      
-      
   });
  
     res.sendStatus(200);
@@ -84,5 +80,5 @@ app.post('/on',(req,res)=>{
 
 app.listen(port,()=>{
     console.log(`listening on port ${port}`);
-    console.log(`db ${process.env.DATABASE_URL}`);
+ 
 })
